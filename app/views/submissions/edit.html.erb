@@ -1,0 +1,8 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Submissions", submissions_path %></li>
+    <li class="breadcrumb-item"><%= link_to @submission.id, @submission %></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit</li>
+  </ol>
+</nav>
+<%= render 'form', submission: @submission %>

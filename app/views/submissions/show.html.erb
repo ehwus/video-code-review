@@ -1,0 +1,23 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Submissions", submissions_path %></li>
+    <li class="breadcrumb-item active mr-auto" aria-current="page"><%= @submission.id %></li> 
+  </ol>
+</nav>
+<div class="card">
+  <h5 class="card-header">Submission</h5>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <p class="fw-bold">Item</p>
+      <p class="fw-normal"><%= @submission.item %></p>
+    </li>
+    <li class="list-group-item">
+      <p class="fw-bold">Full name</p>
+      <p class="fw-normal"><%= @submission.full_name %></p>
+    </li>
+    <li class="list-group-item">
+      <p class="fw-bold">Reflections</p>
+      <p class="fw-normal"><%= @submission.reflections %></p>
+    </li>
+  </ul>
+</div>

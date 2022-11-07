@@ -1,0 +1,45 @@
+<% if submission.errors.any? %>
+  <% submission.errors.full_messages.each do |message| %>
+  <div class="alert alert-danger" role="alert">
+    <%= message %>
+  </div>
+  <% end %>
+<% end %>
+<%= form_with(model: submission, local: true) do |form| -%>
+<div class="card">
+  <h5 class="card-header">Submission</h5>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <div class="form-group">
+        <%= form.label :item, class: "fw-bold" %>
+        <%= form.text_field :item, placeholder: "Enter item", class: "form-control" %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="form-group">
+        <%= form.label :full_name, class: "fw-bold" %>
+        <%= form.text_field :full_name, placeholder: "Enter full_name", class: "form-control" %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="form-group">
+        <%= form.label :video, class: "fw-bold" %>
+        <%= form.file_field :video, placeholder: "Attach your video", class: "form-control" %>
+      </div>
+    </li>
+
+    <li class="list-group-item">
+      <div class="form-group">
+        <%= form.label :reflections, class: "fw-bold" %>
+        <%= form.text_area :reflections, placeholder: "Enter reflections", class: "form-control" %>
+      </div>
+    </li>
+  </ul>
+  <div class="card-footer">
+    <%= link_to "Cancel", submission, class: 'btn btn-outline-secondary float-start' if submission.persisted? %>
+    <%= link_to "Cancel", submissions_path, class: 'btn btn-outline-secondary float-start' if !submission.persisted? %>
+    <%= form.submit "Save", class: "btn btn-primary float-end" if submission.persisted? %>
+    <%= form.submit "Create", class: "btn btn-primary float-end" if !submission.persisted? %>
+  </div>
+</div>
+<% end %>
