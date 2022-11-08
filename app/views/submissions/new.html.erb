@@ -1,7 +1,12 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><%= link_to "Submissions", submissions_path %></li>
-    <li class="breadcrumb-item active" aria-current="page">Add</li>
+<div class="container">
+  <%= image_tag "makers.png", alt: "Makers Academy Logo", height: 75, class: "m-4" %>
+  <h2>Submit a Recording</h2>
+  <p class="my-1">This is a form for you to upload a recording of you undertaking an engineering challenge for feedback. Please:</p>
+  <ol>
+    <li>Add your full name.</li>
+    <li>Upload your recording.</li>
+    <li>(Optional) Add any comments you'd like.</li>
+    <li>Click submit.</li>
   </ol>
-</nav>
-<%= render "form", submission: @submission %>
+  <%= render "form", submission: @submission %>
+</div>

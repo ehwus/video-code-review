@@ -7,7 +7,6 @@
 <% end %>
 <%= form_with(model: submission, local: true) do |form| -%>
 <div class="card">
-  <h5 class="card-header">Submission</h5>
   <ul class="list-group list-group-flush">
     <li class="list-group-item d-none">
       <div class="form-group">
@@ -17,13 +16,15 @@
     </li>
     <li class="list-group-item">
       <div class="form-group">
-        <%= form.label :full_name, class: "fw-bold" %>
-        <%= form.text_field :full_name, placeholder: "Enter full_name", class: "form-control" %>
+        <%= form.label "Full name(s)", class: "fw-bold" %>
+        <p>If you were pairing, include both names.</p>
+        <%= form.text_field :full_name, placeholder: "Enter your full name", class: "form-control" %>
       </div>
     </li>
     <li class="list-group-item">
       <div class="form-group">
-        <%= form.label :video, class: "fw-bold" %>
+        <%= form.label "Recording", class: "fw-bold" %>
+        <p>Upload your recording here.</p>
         <%= form.file_field :video, required: true, placeholder: "Attach your video", accept: "video/*", class: "form-control" %>
       </div>
     </li>
@@ -31,13 +32,13 @@
     <li class="list-group-item">
       <div class="form-group">
         <%= form.label :reflections, class: "fw-bold" %>
+        <p>Optionally, share how you felt the session went.</p>
         <%= form.text_area :reflections, placeholder: "Enter reflections", class: "form-control" %>
       </div>
     </li>
   </ul>
   <div class="card-footer">
-    <%= link_to "Cancel", submission, class: "btn btn-outline-secondary float-start" if submission.persisted? %>
-    <%= link_to "Cancel", submissions_path, class: "btn btn-outline-secondary float-start" if !submission.persisted? %>
+    <%= link_to "Cancel", :back, class: "btn btn-outline-secondary float-start" %>
     <%= form.submit "Save", class: "btn btn-primary float-end" if submission.persisted? %>
     <%= form.submit "Create", class: "btn btn-primary float-end" if !submission.persisted? %>
   </div>
