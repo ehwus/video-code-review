@@ -24,7 +24,7 @@
     <li class="list-group-item">
       <div class="form-group">
         <%= form.label :video, class: "fw-bold" %>
-        <%= form.file_field :video, placeholder: "Attach your video", class: "form-control" %>
+        <%= form.file_field :video, required: true, placeholder: "Attach your video", accept: "video/*", class: "form-control" %>
       </div>
     </li>
 
