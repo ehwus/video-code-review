@@ -10,4 +10,9 @@ RSpec.feature "Creating new Submission", type: :feature do
     visit new_submission_path prefill_item: item_name
     expect(page).to have_field "submission_item", type: :hidden, with: item_name
   end
+
+  it "populates hidden item as unspecified if no params given" do
+    visit new_submission_path
+    expect(page).to have_field "submission_item", type: :hidden, with: "unspecified"
+  end
 end
