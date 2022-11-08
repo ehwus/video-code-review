@@ -10,6 +10,7 @@ require "rspec/rails"
 require "support/factory_bot"
 require "support/shoulda_matchers"
 require "support/database_cleaner"
+require "capybara/rspec"
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -36,6 +37,8 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
+  config.include Capybara::DSL
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

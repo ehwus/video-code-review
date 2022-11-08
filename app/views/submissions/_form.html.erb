@@ -9,10 +9,10 @@
 <div class="card">
   <h5 class="card-header">Submission</h5>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">
+    <li class="list-group-item d-none">
       <div class="form-group">
         <%= form.label :item, class: "fw-bold" %>
-        <%= form.text_field :item, placeholder: "Enter item", class: "form-control" %>
+        <%= form.text_field :item, placeholder: "Enter item", type: "hidden", class: "form-control", value: params[:prefill_item] %>
       </div>
     </li>
     <li class="list-group-item">
