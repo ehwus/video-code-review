@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PeerReviewVideo</title>
+    <title>Makers Academy - Video</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <header>
+      <div class="d-flex flex-wrap align-items-center px-3">
+        <%= image_tag "makers.png", alt: "Makers Academy Logo", height: 75, class: "m-4" %>
+        <h1 class="text-muted mt-4">Video Code Reviews</h1>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
