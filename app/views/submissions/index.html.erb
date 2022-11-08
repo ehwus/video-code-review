@@ -11,6 +11,7 @@
           <div class="card-body">
             <p class="card-text">Item: <b><%= submission.item %></b></p>
             <p class="card-text">Author(s): <b><%= submission.full_name %></b></p>
+            <p class="card-text"><b><%= submission.reviews.length === 0 ? "No reviews!" : "#{pluralize(submission.reviews.length, "review")}" %></b></p>
             <%= link_to "View", submission %>
           </div>
           <div class="card-footer">

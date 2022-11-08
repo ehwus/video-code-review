@@ -4,11 +4,10 @@ require "rails_helper"
 
 RSpec.describe Submission, type: :view do
   let(:create_submission) { create(:submission) }
+  let(:submission_with_review) { create(:submission, reviews: [create(:review)]) }
+  let!(:submission) { create_submission }
 
   describe "submissions/show.html.erb" do
-    let!(:submission) { create_submission }
-    let(:submission_with_review) { create(:submission, reviews: [create(:review)]) }
-
     before(:each) { visit submission_path(submission.id) }
 
     it "displays the item, name, reflections & video" do
@@ -41,6 +40,20 @@ RSpec.describe Submission, type: :view do
         expect(page).to have_text(submission.full_name)
         expect(page).to have_link("View", href: submission_path(submission.id))
       end
+    end
+
+    it "displays how many reviews there are" do
+      visit submissions_path
+      expect(page).to have_text("No reviews!")
+      submission_with_review
+      visit submissions_path
+      expect(page).to have_text("1 review")
+    end
+
+    it "handles pluralised review numbers correctly" do
+      create(:submission, reviews: [create(:review), create(:review), create(:review)])
+      visit submissions_path
+      expect(page).to have_text("3 reviews")
     end
   end
 end
