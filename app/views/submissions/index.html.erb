@@ -9,10 +9,10 @@
       <div class="col">
         <div class="card h-100">
           <div class="card-body">
-            <p class="card-text">Item: <b><%= submission.item %></b></p>
-            <p class="card-text">Author(s): <b><%= submission.full_name %></b></p>
-            <p class="card-text"><b><%= submission.reviews.length === 0 ? "No reviews!" : "#{pluralize(submission.reviews.length, "review")}" %></b></p>
-            <%= link_to "View", submission %>
+            <p class="card-text"><i class="bi bi-file-text me-2" title="Assessment Item"></i><b><%= submission.item %></b></p>
+            <p class="card-text"><i class="bi bi-pencil me-2" title="Author(s)"></i><b><%= submission.full_name %></b></p>
+            <p class="card-text"><i class="bi bi-chat-left-text me-2" title="Number of reviews"></i><b><%= pluralize(submission.reviews.length, "review") %></b></p>
+            <div class="card-text"><i class="bi bi-eye me-2"></i><%= link_to "View", submission %></div>
           </div>
           <div class="card-footer">
             <small class="text-muted"><%= submission.created_at %></small>

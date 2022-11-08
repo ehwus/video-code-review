@@ -44,7 +44,7 @@ RSpec.describe Submission, type: :view do
 
     it "displays how many reviews there are" do
       visit submissions_path
-      expect(page).to have_text("No reviews!")
+      expect(page).to have_text("0 reviews")
       submission_with_review
       visit submissions_path
       expect(page).to have_text("1 review")
