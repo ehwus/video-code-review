@@ -36,8 +36,8 @@
     </li>
   </ul>
   <div class="card-footer">
-    <%= link_to "Cancel", submission, class: 'btn btn-outline-secondary float-start' if submission.persisted? %>
-    <%= link_to "Cancel", submissions_path, class: 'btn btn-outline-secondary float-start' if !submission.persisted? %>
+    <%= link_to "Cancel", submission, class: "btn btn-outline-secondary float-start" if submission.persisted? %>
+    <%= link_to "Cancel", submissions_path, class: "btn btn-outline-secondary float-start" if !submission.persisted? %>
     <%= form.submit "Save", class: "btn btn-primary float-end" if submission.persisted? %>
     <%= form.submit "Create", class: "btn btn-primary float-end" if !submission.persisted? %>
   </div>

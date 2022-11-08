@@ -53,6 +53,8 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem "better_html"
+
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
@@ -82,4 +84,8 @@ group :development, :test do
   gem "rspec-rails"
   gem "shoulda-matchers"
   gem "standard"
+end
+
+group :development do
+  gem "erb_lint"
 end
