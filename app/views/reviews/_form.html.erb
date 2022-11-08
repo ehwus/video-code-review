@@ -1,0 +1,14 @@
+<%= form_with model: [@submission, @submission.reviews.build] do |form| -%>
+  <div class="card mb-3">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <div class="form-group">
+          <%= form.rich_text_area :content, class: "form-control", style: "height: 300px;" %>
+        </div>
+      </li>
+    </ul>
+    <div class="card-footer">
+      <%= form.submit "Submit", class: "btn btn-primary float-end" %>
+    </div>
+  </div>
+<% end %>

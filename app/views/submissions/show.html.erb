@@ -22,12 +22,15 @@
         <p class="fw-bold">Reviews</p>
         <% if @submission.reviews.length > 0 %>
           <% @submission.reviews.each do |review| %>
-            <%= review.content %>
-            <hr>
+            <%= render review %>
           <% end %>
         <% else %>
           <p>This submission doesn't have any reviews yet!</p>
       <% end %>
+      </li>
+      <li class="list-group-item">
+        <p class="fw-bold">Add Review</p>
+        <%= render 'reviews/form' %>
       </li>
     </ul>
   </div>
