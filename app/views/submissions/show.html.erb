@@ -6,20 +6,20 @@
     </ol>
   </nav>
   <div class="card mb-4">
-    <h5 class="card-header"><i class="bi bi-camera-reels me-2"></i>Video Submission for <%= @submission.item %> by <%= @submission.full_name %></h5>
+    <h4 class="card-header"><i class="bi bi-camera-reels me-2"></i>Video Submission for <%= @submission.item %> by <%= @submission.full_name %></h4>
     <ul class="list-group list-group-flush">
       <% if @submission.reflections %>
         <li class="list-group-item">
-          <p class="fw-bold">Author's Reflections</p>
+          <h5 class="fw-bold my-2">Author's Reflections</h5>
           <p class="fw-normal"><%= @submission.reflections %></p>
         </li>
       <% end %>
       <li class="list-group-item">
-        <p class="fw-bold">Video</p>
+        <h5 class="fw-bold my-2">Video</h5>
         <%= video_tag url_for(@submission.video), controls: true %>
       </li>
       <li class="list-group-item">
-        <p class="fw-bold">Reviews</p>
+        <h5 class="fw-bold my-2">Reviews</h5>
         <% if @submission.reviews.length > 0 %>
           <% @submission.reviews.each do |review| %>
             <%= render review %>
@@ -29,7 +29,7 @@
       <% end %>
       </li>
       <li class="list-group-item">
-        <p class="fw-bold">Add Review</p>
+        <h5 class="fw-bold my-2">Add Review</h5>
         <%= render "reviews/form" %>
       </li>
     </ul>
