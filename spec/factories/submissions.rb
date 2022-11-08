@@ -10,7 +10,7 @@ FactoryBot.define do
 
     after(:build) do |submission|
       submission.video.attach(
-        io: File.open(Rails.root.join("test", "fixture_files", "example.mp4")),
+        io: File.open(Rails.root.join("test", "fixtures", "files", "example.mp4")),
         filename: "example.mp4",
         content_type: "video/mp4"
       )

@@ -8,6 +8,10 @@
   <h5 class="card-header">Submission</h5>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
+      <p class="fw-bold">Video</p>
+      <%= video_tag url_for(@submission.video), size: "150x120", controls: true %>
+    </li>
+    <li class="list-group-item">
       <p class="fw-bold">Item</p>
       <p class="fw-normal"><%= @submission.item %></p>
     </li>
