@@ -8,8 +8,9 @@
     <div class="col">
       <div class="card h-100">
         <div class="card-body">
-          <h5 class="card-title"><%= link_to submission.id, submission %></h5>
-          <p class="card-text"><%= submission.inspect %></p>
+          <p class="card-text">Item: <b><%= submission.item %></b></p>
+          <p class="card-text">Author(s): <b><%= submission.full_name %></b></p>
+          <%= link_to "View", submission %>
         </div>
         <div class="card-footer">
           <small class="text-muted"><%= submission.created_at %></small>
