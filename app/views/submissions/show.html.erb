@@ -5,7 +5,7 @@
       <li class="breadcrumb-item active mr-auto" aria-current="page"><%= @submission.id %></li>
     </ol>
   </nav>
-  <div class="card">
+  <div class="card mb-4">
     <h5 class="card-header">Video Submission for <%= @submission.item %> by <%= @submission.full_name %></h5>
     <ul class="list-group list-group-flush">
       <% if @submission.reflections %>
@@ -17,6 +17,17 @@
       <li class="list-group-item">
         <p class="fw-bold">Video</p>
         <%= video_tag url_for(@submission.video), controls: true %>
+      </li>
+      <li class="list-group-item">
+        <p class="fw-bold">Reviews</p>
+        <% if @submission.reviews.length > 0 %>
+          <% @submission.reviews.each do |review| %>
+            <%= review.content %>
+            <hr>
+          <% end %>
+        <% else %>
+          <p>This submission doesn't have any reviews yet!</p>
+      <% end %>
       </li>
     </ul>
   </div>
