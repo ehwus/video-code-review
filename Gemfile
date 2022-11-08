@@ -53,14 +53,6 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-group :development, :test do
-  # RuboCop configuration which has the same code style checking as official Ruby on Rails
-  gem "rubocop-rails_config", "~> 1.10", require: false
-
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[mri mingw x64_mingw]
-end
-
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
@@ -82,9 +74,10 @@ end
 group :development, :test do
   # RuboCop configuration which has the same code style checking as official Ruby on Rails
   gem "rubocop-rails_config", "~> 1.10", require: false
-
+  gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "database_cleaner-active_record"
   gem "factory_bot_rails"
+  gem "faker", "~> 3.0"
   gem "pry-byebug"
   gem "rspec-rails"
   gem "shoulda-matchers"
