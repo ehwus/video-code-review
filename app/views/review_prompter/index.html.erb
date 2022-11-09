@@ -1,0 +1,7 @@
+<h3>Your video has been submitted!</h3>
+<p>We will send you a notification via email and Slack once it has been reviewed.</p>
+
+<% if @submission_to_review %>
+  <p>Do you have time to give a review? Reviewing others' work is a great way to refine your own mentoring and feedback capabilities.</p>
+  <%= link_to("Review a colleague's work", submission_path(@submission_to_review.id)) %>
+<% end %>

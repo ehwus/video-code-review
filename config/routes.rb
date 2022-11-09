@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :submissions do
     resources :reviews
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get "/review_prompter/:owned_id", to: "review_prompter#index", as: "review_prompter"
+
+  root "submissions#index"
 end

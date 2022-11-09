@@ -27,7 +27,7 @@ class SubmissionsController < ApplicationController
 
     respond_to do |format|
       if @submission.save
-        format.html { redirect_to submission_url(@submission), notice: "Submission was successfully created." }
+        format.html { redirect_to review_prompter_path(@submission.id) }
         format.json { render :show, status: :created, location: @submission }
       else
         format.html { render :new, status: :unprocessable_entity }
