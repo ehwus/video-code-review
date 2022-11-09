@@ -11,7 +11,7 @@ RSpec.feature "Creating new Submission", type: :feature do
     fill_in "submission_full_name", with: "Partario"
     fill_in "submission_reflections", with: "It was good thanks"
     attach_file("submission_video", "test/fixtures/files/example.mp4")
-    click_button "Create"
+    click_button "Submit"
   end
 
   it "populates hidden item field from query params" do
