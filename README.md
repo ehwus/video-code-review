@@ -1,24 +1,40 @@
-# README
+# Video Code Review 🎥
+This is a working prototype Rails powered, peer view code video platform.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Links to submit video can be embedded into a curriculum, with a query param denoting the piece of content that is being submitted. The link directs a user to a form, where they can upload the video to a server. If another user has submitted a response to the same content, they will be asked if they could spare the time to review another student's work.
 
-Things you may want to cover:
+Course administrators can be provided with a dashboard to view all students' submissions to have oversight into the quality of the reviews provided.
 
-* Ruby version
+![The form for a student to submit a video of their work](static/video_submission_form.png)
+***
+![A prompt page to nudge a student to give a peer review](static/review_prompt.png)
+***
+![A view for a single submission](static/submission_view.png)
 
-* System dependencies
+## Setup
+### Requirements
+- Ruby 3.1.2
+- PostgreSQL
+- Bundler gem installed
 
-* Configuration
+### Process
+```
+$ git clone https://github.com/ehwus/video-code-review
+$ cd video-code-review
+$ bundle install
+$ bundle exec rails assets:precompile
+$ bundle exec rails db:create && bundle exec rails db:migrate
+$ rails s
+```
 
-* Database creation
+### Run the Test Suite
+```
+$ bundle exec rspec
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Todo
+- Integrate with a single sign in service
+    - Authenticate Coaches having the ability to delete posts.
+    - Confirm identities of those giving reviews to prevent abuse.
+- Integrate with Slack / Email to give students notifications of new reviews for their submissions.
+- Pagination and ranking algorithm on the Submissions dashboard.
