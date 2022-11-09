@@ -6,7 +6,7 @@ require "faker"
 RSpec.feature "Creating new Submission", type: :feature do
   let!(:item_name) { Faker::Educator.course_name }
 
-  def create_new_submission
+  def create_new_submission(item_name = "my_nice_curriculum_item")
     visit new_submission_path prefill_Item: item_name
     fill_in "submission_full_name", with: "Partario"
     fill_in "submission_reflections", with: "It was good thanks"
@@ -38,12 +38,21 @@ RSpec.feature "Creating new Submission", type: :feature do
   end
 
   it "has a prompt to review a random submission if another exists without reviews" do
-    submission = create(:submission)
+    submission = create(:submission, item: item_name)
 
-    create_new_submission
+    create_new_submission(item_name)
     expect(page).to have_text("Your video has been submitted!")
     expect(page).to have_text("We will send you a notification via email and Slack once it has been reviewed.")
     expect(page).to have_text("Do you have time to give a review? Reviewing others' work is a great way to refine your own mentoring and feedback capabilities.")
     expect(page).to have_link("Review a colleague's work", href: submission_path(submission.id))
+  end
+
+  it "only asks a student to review a submission of the same curriculum item" do
+    create(:submission, item: "item_name")
+    create_new_submission("completely_different_item_name")
+    expect(page).to have_text("Your video has been submitted!")
+    expect(page).to have_text("We will send you a notification via email and Slack once it has been reviewed.")
+    expect(page).not_to have_text("Do you have time to give a review? Reviewing other's work is a great way to refine your own mentoring and feedback capabilities.")
+    expect(page).not_to have_link("Review a colleague's work")
   end
 end

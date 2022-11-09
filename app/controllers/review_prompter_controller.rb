@@ -6,9 +6,10 @@ class ReviewPrompterController < ApplicationController
   end
 
   private
-    def get_submission_to_review(owned_review_id)
-      return if Submission.all.empty?
+    def get_submission_to_review(owned_submission_id)
+      item_name = Submission.find(owned_submission_id).item
+      relevant_submissions = Submission.where(item: item_name).where.not(id: owned_submission_id)
 
-      Submission.where.not(id: owned_review_id).sample
+      return relevant_submissions.sample unless relevant_submissions.empty?
     end
 end
