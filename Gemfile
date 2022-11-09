@@ -89,3 +89,4 @@ end
 group :development do
   gem "erb_lint"
 end
+gem "simplecov", require: false, group: :test
