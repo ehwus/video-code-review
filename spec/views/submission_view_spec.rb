@@ -5,9 +5,9 @@ require "rails_helper"
 RSpec.describe Submission, type: :view do
   let(:create_submission) { create(:submission) }
   let(:submission_with_review) { create(:submission, reviews: [create(:review)]) }
-  let!(:submission) { create_submission }
 
   describe "submissions/show.html.erb" do
+    let!(:submission) { create_submission }
     before(:each) { visit submission_path(submission.id) }
 
     it "displays the item, name, reflections & video" do
@@ -31,6 +31,11 @@ RSpec.describe Submission, type: :view do
   end
 
   describe "submissions/index.html.erb" do
+    it "notifies the user if there are no submissions" do
+      visit submissions_path
+      expect(page).to have_text("There are no Submissions to view yet!")
+    end
+
     it "displays the item and name with a link of multiple submissions" do
       submissions = Array.new(5, create_submission)
       visit submissions_path
@@ -43,6 +48,7 @@ RSpec.describe Submission, type: :view do
     end
 
     it "displays how many reviews there are" do
+      create_submission
       visit submissions_path
       expect(page).to have_text("0 reviews")
       submission_with_review
