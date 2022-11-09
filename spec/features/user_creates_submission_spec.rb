@@ -7,7 +7,7 @@ RSpec.feature "Creating new Submission", type: :feature do
   let!(:item_name) { Faker::Educator.course_name }
 
   def create_new_submission
-    visit new_submission_path prefill_item: item_name
+    visit new_submission_path prefill_Item: item_name
     fill_in "submission_full_name", with: "Partario"
     fill_in "submission_reflections", with: "It was good thanks"
     attach_file("submission_video", "test/fixtures/files/example.mp4")
@@ -15,7 +15,7 @@ RSpec.feature "Creating new Submission", type: :feature do
   end
 
   it "populates hidden item field from query params" do
-    visit new_submission_path prefill_item: item_name
+    visit new_submission_path prefill_Item: item_name
     expect(page).to have_field "submission_item", type: :hidden, with: item_name
   end
 
