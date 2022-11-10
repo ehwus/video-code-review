@@ -8,12 +8,6 @@ class ReviewsController < ApplicationController
     redirect_to submission_path(@submission)
   end
 
-  def destroy
-    @review = @submission.reviews.find(params[:review_id])
-    @review.destroy
-    redirect_to submission_path(@submission)
-  end
-
   private
     def set_submission
       @submission = Submission.find(params[:submission_id])

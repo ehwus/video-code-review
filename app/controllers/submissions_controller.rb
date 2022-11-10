@@ -20,16 +20,8 @@ class SubmissionsController < ApplicationController
   # POST /submissions or /submissions.json
   def create
     @submission = Submission.new(submission_params)
-
-    respond_to do |format|
-      if @submission.save
-        format.html { redirect_to review_prompter_path(@submission.id) }
-        format.json { render :show, status: :created, location: @submission }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @submission.errors, status: :unprocessable_entity }
-      end
-    end
+    @submission.save!
+    redirect_to review_prompter_path(@submission.id)
   end
 
   private
