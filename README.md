@@ -1,5 +1,5 @@
 # Video Code Review 🎥
-This is a working prototype Rails powered, peer view code video platform.
+This is a working prototype of a Rails powered peer code review video platform. The primary objective of the project is to help students learn - they will receive feedback more quickly, and also develop their skills at reviewing the work of others'.
 
 Links to submit video can be embedded into a curriculum, with a query param denoting the piece of content that is being submitted. The link directs a user to a form, where they can upload the video to a server. If another user has submitted a response to the same content, they will be asked if they could spare the time to review another student's work.
 
@@ -14,8 +14,12 @@ Course administrators can be provided with a dashboard to view all students' sub
 ## Setup
 ### Requirements
 - Ruby 3.1.2
-- PostgreSQL
 - Bundler gem installed
+- PostgreSQL (with a superuser account named after your own terminal login, ideally)
+    - `$ sudo su - postgres`
+    - `$ psql`
+    - `CREATE USER <YOUR TERMINAL USERNAME> WITH CREATEDB CREATEUSER;`
+
 
 ### Process
 ```
