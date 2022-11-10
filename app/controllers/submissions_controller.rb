@@ -5,7 +5,7 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions or /submissions.json
   def index
-    @submissions = Submission.all
+    @submissions = Submission.left_joins(:reviews).group(:id).order("COUNT(reviews.id), created_at DESC")
   end
 
   # GET /submissions/1 or /submissions/1.json

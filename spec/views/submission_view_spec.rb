@@ -61,5 +61,12 @@ RSpec.describe Submission, type: :view do
       visit submissions_path
       expect(page).to have_text("3 reviews")
     end
+
+    it "shows submissions with zero reviews first" do
+      5.times { submission_with_review }
+      create_submission
+      visit submissions_path
+      expect(find(".card-body", match: :first)).to have_text("0 reviews")
+    end
   end
 end
