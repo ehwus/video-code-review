@@ -7,4 +7,8 @@ class Submission < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   has_one_attached :video
+
+  def self.prioritized_all
+    left_joins(:reviews).group(:id).order("COUNT(reviews.id), created_at DESC")
+  end
 end
