@@ -14,6 +14,7 @@ Course administrators can be provided with a dashboard to view all students' sub
 ## Setup
 ### Requirements
 - Ruby 3.1.2
+- NodeJS / Yarn
 - Bundler gem installed
 - PostgreSQL (with a superuser account named after your own terminal login, ideally)
     - `$ sudo su - postgres`
